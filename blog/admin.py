@@ -6,4 +6,6 @@ from blog.models import Blog
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'body', 'created', 'updated')
+    list_display = ('title', 'image', 'body', 'created', 'updated')
+    list_display_links = ['title', 'body', 'created']
+    list_filter = ['title']

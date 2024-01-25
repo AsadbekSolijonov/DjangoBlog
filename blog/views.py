@@ -5,14 +5,13 @@ from blog.models import Blog
 
 # Create your views here.
 def index(request):
-    objects = Blog.objects.all()
+    blogs = Blog.objects.all()
 
-    context = ""
-    for obj in objects:
-        context += F"<h1>{obj.title}</h1>"
-        context += F"<h2>{obj.body}</h2>"
+    context = {
+        "blogs": blogs
+    }
 
-    return HttpResponse(f"{context}")
+    return render(request, "blog/index.html", context=context)
 
 
 def hello(request):  # new
