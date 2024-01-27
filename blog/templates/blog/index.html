@@ -19,7 +19,11 @@
             <h2 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}"
                         aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
-                    <img style="width: 45px;" src="{{ blog.image.url }}" alt="">{{ blog.title }} <span style="color:red;">{{ blog.created | timesince }} ago</span>
+                    <img style="width: 50px; border-radius: 50%; height: 45px; background-size: cover; background-position: center; box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); background-image: url({{ blog.image.url }})">
+                    <div style="width: 100%; margin: 0 10px; display: flex; justify-content: space-between; align-items: center">
+                        <span>{{ blog.title }}</span>
+                        <code>{{ blog.created | timesince }} ago</code>
+                    </div>
                 </button>
             </h2>
             <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
