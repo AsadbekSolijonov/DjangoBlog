@@ -5,7 +5,7 @@ from blog.models import Blog
 
 # Create your views here.
 def index(request):
-    blogs = Blog.objects.all()
+    blogs = Blog.objects.order_by("-created")
 
     context = {
         "blogs": blogs
