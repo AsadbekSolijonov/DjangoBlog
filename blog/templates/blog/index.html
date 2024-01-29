@@ -61,9 +61,9 @@
     {#accordion start#}
     <div class="accordion" id="accordionExample">
         {% for date, blogs in grouped_blogs.items %}
-            <h5 class="mt-4 text-primary">{{ date }}</h5>
+            <h5 class="mt-5 text-primary">{{ date }}</h5>
             {% for blog in blogs %}
-                <div class="accordion-item">
+                <div class="accordion-item border border-1">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapse{{ blog.id }}"
