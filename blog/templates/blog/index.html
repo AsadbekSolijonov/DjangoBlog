@@ -19,6 +19,8 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+
+{#navbar start#}
 <nav class="navbar navbar-expand-lg bg-primary bg-opacity-25" style="background-color: #e3f2fd;">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Mars Blog</a>
@@ -52,37 +54,42 @@
         </div>
     </div>
 </nav>
+{#navbar end#}
 
 {#container start#}
-<div class="container mt-5">
-    {#accardion start#}
+<div class="container mt-5 w-50">
+    {#accordion start#}
     <div class="accordion" id="accordionExample">
-        {% for blog in blogs %}
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse{{ forloop.counter }}"
-                            aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
-                        <img class="profile_img border border-5" style="background-image: url({{ blog.image.url }})">
-                        <div class="blog-header">
-                            <b>{{ blog.title }}</b>
-                            <code class="text-primary">{{ blog.created | timesince }} ago</code>
+        {% for date, blogs in grouped_blogs.items %}
+            <h5 class="mt-4 text-primary">{{ date }}</h5>
+            {% for blog in blogs %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse{{ blog.id }}"
+                                aria-expanded="true" aria-controls="collapse{{ blog.id }}">
+                            <img class="profile_img border border-1"
+                                 style="background-image: url({{ blog.image.url }})">
+                            <div class="blog-header">
+                                <b>{{ blog.title }}</b>
+                                <code class="text-primary">{{ blog.created | timesince }} ago</code>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="collapse{{ blog.id }}" class="accordion-collapse collapse show"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>{{ blog.title }}.</strong> {{ blog.body }}
+                            <p><code>{{ blog.created }}</code></p>
+                            <p>{{ blog.body | wordcount }} words</p>
                         </div>
-                    </button>
-                </h2>
-                <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse show"
-                     data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>{{ blog.title }}.</strong> {{ blog.body }}
-                        <p><code>{{ blog.created }}</code></p>
-                        <p>{{ blog.body | wordcount }} words</p>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         {% endfor %}
 
     </div>
-    {#accardion end#}
+    {#accordion end#}
 </div>
 {#container end#}
 
