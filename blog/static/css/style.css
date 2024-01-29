@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.profile_img {
+    width: 70px;
+    border-radius: 50%;
+    height: 62px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-header {
+    width: 100%;
+    margin: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}

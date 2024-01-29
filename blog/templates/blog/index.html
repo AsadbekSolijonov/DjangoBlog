@@ -1,39 +1,84 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     {# Bootstrap CSS #}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    {# Link CSS #}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg bg-primary bg-opacity-25" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Mars Blog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Dropdown link
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 {#container start#}
-<div class="container">
+<div class="container mt-5">
     {#accardion start#}
     <div class="accordion" id="accordionExample">
-
         {% for blog in blogs %}
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}"
-                        aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
-                    <img style="width: 50px; border-radius: 50%; height: 45px; background-size: cover; background-position: center; box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); background-image: url({{ blog.image.url }})">
-                    <div style="width: 100%; margin: 0 10px; display: flex; justify-content: space-between; align-items: center">
-                        <span>{{ blog.title }}</span>
-                        <code>{{ blog.created | timesince }} ago</code>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse{{ forloop.counter }}"
+                            aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+                        <img class="profile_img border border-5" style="background-image: url({{ blog.image.url }})">
+                        <div class="blog-header">
+                            <b>{{ blog.title }}</b>
+                            <code class="text-primary">{{ blog.created | timesince }} ago</code>
+                        </div>
+                    </button>
+                </h2>
+                <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse show"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>{{ blog.title }}.</strong> {{ blog.body }}
+                        <p><code>{{ blog.created }}</code></p>
+                        <p>{{ blog.body | wordcount }} words</p>
                     </div>
-                </button>
-            </h2>
-            <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>{{ blog.title }}.</strong> {{ blog.body }}
-                    <p><code>{{ blog.created }}</code></p>
-                    <p>{{ blog.body | wordcount }} words</p>
                 </div>
             </div>
-        </div>
         {% endfor %}
 
     </div>
