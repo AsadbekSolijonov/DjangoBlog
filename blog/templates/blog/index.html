@@ -17,11 +17,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"></script>
+
+    {# fontawesome #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
 
 {#navbar start#}
-<nav class="navbar navbar-expand-lg bg-primary bg-opacity-25" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg bg-primary-subtle sticky-top" style="background-color: #e3f2fd;">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Mars Blog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -61,7 +66,7 @@
     {#accordion start#}
     <div class="accordion" id="accordionExample">
         {% for date, blogs in grouped_blogs.items %}
-            <h5 class="mt-5 text-primary">{{ date }}</h5>
+            <h5 class="mt-5 text-primary sticky-top bg-white fluid" style="top:56px;"><i class="fa-solid fa-calendar-days"></i> {{ date }}</h5>
             {% for blog in blogs %}
                 <div class="accordion-item border border-1">
                     <h2 class="accordion-header">
