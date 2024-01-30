@@ -66,7 +66,8 @@
     {#accordion start#}
     <div class="accordion" id="accordionExample">
         {% for date, blogs in grouped_blogs.items %}
-            <h5 class="z-2 mt-5 text-primary sticky-top bg-white fluid" style="top:56px;">| <i class="fa-solid fa-calendar-days"></i> {{ date }}</h5>
+            <h5 class="z-2 mt-5 text-primary sticky-top bg-white fluid" style="top:56px;">| <i
+                    class="fa-solid fa-calendar-days"></i> {{ date }}</h5>
             {% for blog in blogs %}
                 <div class="z-1 accordion-item border border-1">
                     <h2 class="accordion-header">
