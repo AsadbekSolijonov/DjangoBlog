@@ -26,7 +26,7 @@
 <body>
 
 {#navbar start#}
-<nav class="navbar navbar-expand-lg bg-primary-subtle sticky-top" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg bg-primary-subtle sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Mars Blog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -70,7 +70,7 @@
             {% for blog in blogs %}
                 <div class="z-1 accordion-item border border-1">
                     <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        <button class="z-0 accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapse{{ blog.id }}"
                                 aria-expanded="true" aria-controls="collapse{{ blog.id }}">
                             <img class="profile_img border border-1"
