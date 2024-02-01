@@ -65,32 +65,36 @@
 <div class="container mt-5 w-50">
     {#accordion start#}
     <div class="accordion" id="accordionExample">
-        {% for date, blogs in grouped_blogs.items %}
+        {% for year, blogs in grouped_blogs_year.items %}
             <h5 class="z-2 mt-5 text-primary sticky-top bg-white fluid" style="top:56px;">| <i
-                    class="fa-solid fa-calendar-days"></i> {{ date }}</h5>
-            {% for blog in blogs %}
-                <div class="z-1 accordion-item border border-1">
-                    <h2 class="accordion-header">
-                        <button class="z-0 accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse{{ blog.id }}"
-                                aria-expanded="true" aria-controls="collapse{{ blog.id }}">
-                            <img class="profile_img border border-1"
-                                 style="background-image: url({{ blog.image.url }})">
-                            <div class="blog-header">
-                                <b>{{ blog.title }}</b>
-                                <code class="text-primary">{{ blog.created | timesince }} ago</code>
+                    class="fa-solid fa-calendar-days"></i> {{ year }}</h5>
+            {% for month, blogs in grouped_blogs_month.items %}
+                <h5 class="z-2 mt-5 text-primary sticky-top bg-white fluid" style="top:80px;">| <i
+                        class="fa-solid fa-calendar-days"></i> {{ month }}</h5>
+                    {% for blog in blogs %}
+                        <div class="z-1 accordion-item border border-1">
+                            <h2 class="accordion-header">
+                                <button class="z-0 accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse{{ blog.id }}"
+                                        aria-expanded="true" aria-controls="collapse{{ blog.id }}">
+                                    <img class="profile_img border border-1"
+                                         style="background-image: url({{ blog.image.url }})">
+                                    <div class="blog-header">
+                                        <b>{{ blog.title | truncatewords:8 }}</b>
+                                        <code class="text-primary">{{ blog.created | timesince }} ago</code>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="collapse{{ blog.id }}" class="accordion-collapse collapse show"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>{{ blog.title }}.</strong> {{ blog.body }}
+                                    <p><code>{{ blog.created }}</code></p>
+                                    <p>{{ blog.body | wordcount }} words</p>
+                                </div>
                             </div>
-                        </button>
-                    </h2>
-                    <div id="collapse{{ blog.id }}" class="accordion-collapse collapse show"
-                         data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <strong>{{ blog.title }}.</strong> {{ blog.body }}
-                            <p><code>{{ blog.created }}</code></p>
-                            <p>{{ blog.body | wordcount }} words</p>
                         </div>
-                    </div>
-                </div>
+                    {% endfor %}
             {% endfor %}
         {% endfor %}
 
