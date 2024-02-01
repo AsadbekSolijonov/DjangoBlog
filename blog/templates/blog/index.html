@@ -1,10 +1,14 @@
 {% extends 'blog/base.html' %}
+{% block title %}
+    Blogs
+{% endblock %}
 
 {% block content %}
     {#container start#}
     <div class="container mt-5 w-50">
         {#accordion start#}
         <div class="accordion" id="accordionExample">
+
             {% for year, blogs in grouped_blogs_year.items %}
                 <h5 class="z-2 mt-5 text-primary sticky-top bg-white fluid" style="top:56px;">| <i
                         class="fa-solid fa-calendar-days"></i> {{ year }}</h5>
