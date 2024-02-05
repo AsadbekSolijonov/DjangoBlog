@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from blog.models import Blog
+from blog.models import Blog, Category
 from itertools import groupby
 from django.utils.timezone import localtime
 
@@ -32,15 +32,13 @@ def index(request):
     for key, group in groupby(blogs, lambda post: localtime(post.created).month):
         group_month[month_names.get(key, 'Unknown')] = list(group)
 
+    categories = Category.objects.all()
+
     context = {
         "grouped_blogs_month": group_month,
         "grouped_blogs_year": group_year,
+        "categories": categories
 
     }
 
     return render(request, "blog/index.html", context=context)
-
-
-def hello(request):  # new
-    context = {}
-    return render(request, 'blog/navbar.html', context=context)

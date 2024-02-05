@@ -1,37 +1,51 @@
 {% extends 'blog/base.html' %}
+{#Title#}
 {% block title %}
     Blogs
 {% endblock %}
+{#start left bar #}
+{% block leftbar %}
+    {% include 'blog/leftbar.html' %}
+{% endblock %}
+{#end left bar#}
 
+{#start right bar#}
+{% block categories %}
+    {% include 'blog/rightbar.html' %}
+{% endblock %}
+{# end right bar #}
+
+{# start blog content#}
 {% block content %}
-    {#container start#}
-    <div class="container mt-5 w-50">
-        {#accordion start#}
-        <div class="accordion" id="accordionExample">
-
-            {% for year, blogs in grouped_blogs_year.items %}
-                <h5 class="z-2 mt-5 text-primary sticky-top bg-white fluid" style="top:56px;">| <i
+    {# start container #}
+    <div class="mt-1">
+        {# start accordion #}
+        {% for year, blogs in grouped_blogs_year.items %}
+            <div class="accordion" id="accordionExample">
+                <h5 class="z-2 mt-3 fw-lighter sticky-top bg-white fluid shadow-sm p-3 mb-3 bg-body-white rounded"
+                    style="top:70px;">| <i
                         class="fa-solid fa-calendar-days"></i> {{ year }}</h5>
                 {% for month, blogs in grouped_blogs_month.items %}
-                    <h5 class="z-2 mt-5 text-primary sticky-top bg-white fluid" style="top:80px;">| <i
+                    <h5 class="z-2 mt-5 fw-lighter sticky-top bg-white fluid shadow-sm p-3 mb-3 bg-body-white rounded"
+                        style="top:110px;">| <i
                             class="fa-solid fa-calendar-days"></i> {{ month }}</h5>
                     {% for blog in blogs %}
-                        <div class="z-1 accordion-item border border-1">
+                        <div class="z-1 m-2 accordion-item border border-1 rounded">
                             <h2 class="accordion-header">
-                                <button class="z-0 accordion-button" type="button" data-bs-toggle="collapse"
+                                <button class="z-0 accordion-button rounded" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapse{{ blog.id }}"
                                         aria-expanded="true" aria-controls="collapse{{ blog.id }}">
                                     <img class="profile_img border border-1"
                                          style="background-image: url({{ blog.image.url }})">
                                     <div class="blog-header">
-                                        <b>{{ blog.title | truncatewords:8 }}</b>
-                                        <code class="text-primary">{{ blog.created | timesince }} ago</code>
+                                        <b class="fw-normal">{{ blog.title | truncatewords:8 }}</b>
+                                        <code class="text-body-secondary">{{ blog.created | timesince }} ago</code>
                                     </div>
                                 </button>
                             </h2>
                             <div id="collapse{{ blog.id }}" class="accordion-collapse collapse show"
                                  data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
+                                <div class="accordion-body fw-lighter">
                                     <strong>{{ blog.title }}.</strong> {{ blog.body }}
                                     <p><code>{{ blog.created }}</code></p>
                                     <p>{{ blog.body | wordcount }} words</p>
@@ -40,11 +54,11 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
-            {% endfor %}
-
-        </div>
-        {#accordion end#}
+            </div>
+            {# end accordion #}
+        {% endfor %}
     </div>
-    {#container end#}
+    {# end container #}
 
 {% endblock %}
+{# end blog content #}

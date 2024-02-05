@@ -1,0 +1,15 @@
+<div class="mt-1 card border mb-3 sticky-top" style="max-width: 18rem; top: 100px;">
+    <div class="card-body text-dark">
+        <h5 class="fw-light">Dark card title</h5>
+        <hr>
+        <p class="card-text">
+            {% if categories %}
+                {% for category in categories %}
+                    <span class="badge text-bg-light fw-normal">#{{ category.name }}</span>
+                {% endfor %}
+            {% else %}
+                <span class="badge text-bg-light">Kategoriya mavjud emas</span>
+            {% endif %}
+        </p>
+    </div>
+</div>
