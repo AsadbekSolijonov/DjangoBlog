@@ -37,7 +37,8 @@ def index(request):
     context = {
         "grouped_blogs_month": group_month,
         "grouped_blogs_year": group_year,
-        "categories": categories
+        "categories": categories,
+
 
     }
 

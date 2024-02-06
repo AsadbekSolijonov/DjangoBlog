@@ -3,6 +3,7 @@
 {% block title %}
     Blogs
 {% endblock %}
+
 {#start left bar #}
 {% block leftbar %}
     {% include 'blog/leftbar.html' %}
@@ -23,8 +24,7 @@
         {% for year, blogs in grouped_blogs_year.items %}
             <div class="accordion" id="accordionExample">
                 <h5 class="z-2 mt-3 fw-lighter sticky-top bg-white fluid shadow-sm p-3 mb-3 bg-body-white rounded"
-                    style="top:70px;">| <i
-                        class="fa-solid fa-calendar-days"></i> {{ year }}</h5>
+                    style="top:70px;">| <i class="fa-solid fa-calendar-days"></i> {{ year }}</h5>
                 {% for month, blogs in grouped_blogs_month.items %}
                     <h5 class="z-2 mt-5 fw-lighter sticky-top bg-white fluid shadow-sm p-3 mb-3 bg-body-white rounded"
                         style="top:110px;">| <i
@@ -38,16 +38,25 @@
                                     <img class="profile_img border border-1"
                                          style="background-image: url({{ blog.image.url }})">
                                     <div class="blog-header">
-                                        <b class="fw-normal">{{ blog.title | truncatewords:8 }}</b>
+                                        <div>
+                                            <b class="fw-normal">{{ blog.title | truncatewords:8 }}</b>
+                                            <br class="mt-1">
+                                            {% for category in blog.category.all %}
+                                                <b class="badge text-bg-light fw-normal">#{{ category.name }}</b>
+                                            {% endfor %}
+
+                                        </div>
                                         <code class="text-body-secondary">{{ blog.created | timesince }} ago</code>
                                     </div>
                                 </button>
                             </h2>
-                            <div id="collapse{{ blog.id }}" class="accordion-collapse collapse show"
+                            <div id="collapse{{ blog.id }}" class="accordion-collapse collapse"
                                  data-bs-parent="#accordionExample">
                                 <div class="accordion-body fw-lighter">
                                     <strong>{{ blog.title }}.</strong> {{ blog.body }}
-                                    <p><code>{{ blog.created }}</code></p>
+                                    <p>
+                                        <code>{{ blog.created }}</code>
+                                    </p>
                                     <p>{{ blog.body | wordcount }} words</p>
                                 </div>
                             </div>
