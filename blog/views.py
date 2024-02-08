@@ -38,7 +38,7 @@ def index(request):
         "grouped_blogs_month": group_month,
         "grouped_blogs_year": group_year,
         "categories": categories,
-
+        "len": {"year": len(group_year), "month": len(group_month), "blog": len(blogs)}
 
     }
 
