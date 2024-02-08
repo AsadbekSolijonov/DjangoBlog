@@ -20,15 +20,18 @@
 {% block content %}
     {# start container #}
     <div class="mt-1">
+        {# Start Results, Years, Months, Blogs #}
         <h5 class="text-end z-2 fw-lighter sticky-top bg-white fluid shadow-sm p-3 mb-3 bg-body-white rounded"
             style="top:70px;">
             <div class="d-flex justify-content-between">
                 <i class="fa-solid fa-feather-pointed"></i>
                 <div>
-                    <b>{{ len.year }}</b> years / <b>{{ len.month }}</b> months / <b>{{ len.blog }}</b> blogs
+                    <b>{{ count.year }}</b> years / <b>{{ count.month }}</b> months / <b>{{ count.blog }}</b> blogs
                 </div>
-             </div>
+            </div>
         </h5>
+        {# End Results, Years, Months, Blogs #}
+
         {# start accordion #}
         {% for year, blogs in grouped_blogs_year.items %}
             <div class="accordion" id="accordionExample">
@@ -50,9 +53,11 @@
                                         <div>
                                             <b class="fw-normal">{{ blog.title | truncatewords:8 }}</b>
                                             <br class="mt-1">
+                                            {# start blog Categories #}
                                             {% for category in blog.category.all %}
                                                 <b class="badge text-bg-light fw-normal">#{{ category.name }}</b>
                                             {% endfor %}
+                                            {# end blog Categories #}
                                         </div>
                                         <code class="text-body-secondary">{{ blog.created | timesince }} ago</code>
                                     </div>

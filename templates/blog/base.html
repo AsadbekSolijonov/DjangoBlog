@@ -30,16 +30,19 @@
 
 <div class="">
     <div class="row">
+        {# left bar#}
         <div class="col-3">
             {% block leftbar %}
             {% endblock %}
         </div>
+        {#blog#}
         <div class="col-6">
             {#Blogs#}
             {% block content %}
 
             {% endblock %}
         </div>
+        {#right bar#}
         <div class="col-3">
             {#Categories#}
             {% block categories %}
