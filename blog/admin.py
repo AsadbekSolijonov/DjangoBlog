@@ -19,6 +19,7 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('blog_title', 'body_field', 'created', 'updated', 'image')
+
     # list_display_links = ['blog_title', 'created']
     # list_filter = ['blog_title']
 

@@ -42,11 +42,13 @@
                         style="top:110px;">| <i
                             class="fa-solid fa-calendar-days"></i> {{ month }}</h5>
                     {% for blog in blogs %}
-                        <div class="z-1 m-2 accordion-item border border-1 rounded">
+                        <div class="z-1 m-2 accordion accordion-flush border border-1 rounded"
+                             id="accordionFlushExample">
                             <h2 class="accordion-header">
-                                <button class="z-0 accordion-button rounded" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse{{ blog.id }}"
-                                        aria-expanded="true" aria-controls="collapse{{ blog.id }}">
+                                <button class="z-0 accordion-button collapsed rounded" type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse{{ blog.id }}"
+                                        aria-expanded="false" aria-controls="flush-collapse{{ blog.id }}">
                                     <img class="profile_img border border-1"
                                          style="background-image: url({{ blog.image.url }})">
                                     <div class="blog-header">
@@ -63,8 +65,8 @@
                                     </div>
                                 </button>
                             </h2>
-                            <div id="collapse{{ blog.id }}" class="accordion-collapse collapse show"
-                                 data-bs-parent="#accordionExample">
+                            <div id="flush-collapse{{ blog.id }}" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body fw-lighter">
                                     <strong>{{ blog.title }}.</strong> {{ blog.body }}
                                     <p class="text-end">{{ blog.body | wordcount }} words</p>
