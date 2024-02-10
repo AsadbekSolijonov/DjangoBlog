@@ -12,7 +12,8 @@
         <p class="card-text">
             {% if categories %}
                 {% for category in categories %}
-                    <span class="badge text-bg-light fw-normal">#{{ category.name }}</span>
+                    <b class="badge text-bg-light fw-normal">
+                        <a href="{% url 'category_tag' category.name %}">#{{ category.name }}</a> </b>
                 {% endfor %}
             {% else %}
                 <span class="badge text-bg-light">Kategoriya mavjud emas</span>
