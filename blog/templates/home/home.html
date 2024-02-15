@@ -1,0 +1,384 @@
+{% include 'blog/navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+    />
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+    ></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
+    <title>Document</title>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-flex">
+            <nav>
+                <ul>
+                    <li><a href="">About me</a></li>
+                    <li><a href="">Skills</a></li>
+                    <li><a href="">Portfolio</a></li>
+                    <li>
+                        <button class="contact-button">CONTACT ME</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container-2">
+        <div class="bg-flex">
+            <div class="bg-left">
+                <img src="{% static 'images/logo 1.png' %}" alt=""/>
+                <div class="about-flex">
+                    <h1 class="about-text_1">Hi, I am</h1>
+                    <h2>Abduhamid Ikramov</h2>
+                    <h3>Fullstack developer</h3>
+                </div>
+                <div class="logo-flex">
+                    <div class="logo-block">
+                        <a href="https://mail.google.com/mail/u/0/#inbox">
+                            <img src="{% static 'images/Vector.png' %}" alt=""/>
+                        </a>
+                    </div>
+                    <div class="logo-block">
+                        <a href="https://github.com/abdukhamid12">
+                            <img src="{% static 'images/dog.png' %}" alt=""/>
+                        </a>
+                    </div>
+                    <div class="logo-block">
+                        <a href="">
+                            <img src="{% static 'images/in.png' %}" alt=""/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-right">
+                <div class="header-flex">
+                    <nav>
+                        <ul>
+                            <li><a href="">About me</a></li>
+                            <li><a href="">Skills</a></li>
+                            <li><a href="">Portfolio</a></li>
+                            <li>
+                                <button class="contact-button">CONTACT ME</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <img
+                        style="margin-top: 63px; width: 600px"
+                        src="{% static 'images/image 17.png' %}"
+                        alt=""
+                />
+            </div>
+        </div>
+    </div>
+    <div class="container-3">
+        <div class="berries_block">
+            <h1 class="berries_text">IT BERRIES</h1>
+            <p class="berries_more_text">
+                Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
+                varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
+                quis libero viverra facilisis ut ac est. Morbi commodo, eros in
+                dignissim tempus, lacus odio rutrum augue, in semper sem magna quis
+                tellus. Etiam enim erat, suscipit eu semper a, dictum sit amet elit.
+                Nunc egestas nisi eget enim gravida facilisis. Pellentesque laoreet
+                varius turpis vel pharetra. Ut ante justo, consequat vitae elementum
+                tempor, accumsan nec eros.
+            </p>
+            <button class="berries_button">Read More</button>
+        </div>
+    </div>
+    <div class="container-4">
+        <div class="about-me_block">
+            <div class="about_mini_block">
+                <button class="big_button">ABOUT ME</button>
+                <p class="about_paragraph">
+                    Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
+                    varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
+                    quis libero viverra facilisis ut ac est.
+                </p>
+                <button class="explore_button">EXPLORE</button>
+                <div class="service_block">
+                    <div class="two_service-flex">
+                        <div class="design-service">
+                            <h1 class="design-text">Design</h1>
+                            <p class="design-big_text">
+                                I can design the site based on your needs and suggestions. I
+                                can also design the site from scratch and consult you during
+                                the job.
+                            </p>
+                        </div>
+                        <div class="development-service">
+                            <h1 class="development-text">Development</h1>
+                            <p>
+                                I can design the site based on your needs and suggestions. I
+                                can also design the site from scratch and consult you during
+                                the job.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="last_maintenance-service">
+                        <h1 class="maintenance-text">Maintenance</h1>
+                        <p>
+                            I can design the site based on your needs and suggestions. I
+                            can also design the site from scratch and consult you during
+                            the job.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills_block">
+            <button style="margin-left: 300px" class="big_button">SKILLS</button>
+            <div class="big_skills_flex">
+                <h1 class="using-text">Using Now:</h1>
+                <div class="using-flex">
+                    <div class="using_block-1">
+                        <img src="./assets/Group 12.svg" alt=""/>
+                        <img src="./assets/Group 13.svg" alt=""/>
+                        <img src="./assets/Group 14.svg" alt=""/>
+                        <img src="./assets/Group.svg" alt=""/>
+                    </div>
+                    <div class="using-block-2">
+                        <img src="./assets/bootstrap.svg" alt=""/>
+                        <img src="./assets/figma.svg" alt=""/>
+                        <img src="./assets/Vector.svg" alt=""/>
+                        <img
+                                style="width: 130px"
+                                src="./assets/OIP__8_-removebg-preview.png"
+                                alt=""
+                        />
+                    </div>
+                </div>
+                <h1 class="learning-text">Learning:</h1>
+                <div class="learning-flex">
+                    <div class="using_block-1">
+                        <img src="./assets/Group (1).png" alt=""/>
+                        <img src="./assets/Group (2).png" alt=""/>
+                        <img
+                                style="width: 270px"
+                                src="./assets/OIP__9_-removebg-preview.png"
+                                alt=""
+                        />
+                    </div>
+                </div>
+                <div style="margin-top: -250px" class="other-skills">
+                    <h1 class="other-text">Other skills:</h1>
+                    <div class="using_block-1">
+                        <img
+                                style="width: 270px"
+                                src="./assets/R__3_-removebg-preview (1).png"
+                                alt=""
+                        />
+                        <img
+                                style="width: 180px"
+                                src="./assets/R__8_-removebg-preview.png"
+                                alt=""
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-5">
+        <div class="portfolio-img">
+            <button class="portfolio_button">Portfolio</button>
+        </div>
+        <div class="my_projects">
+            <div class="projects_header">
+                <button onclick="showAll()">All</button>
+                <button onclick="showCoded()">Coded</button>
+                <button onclick="showDesigned()">Designed</button>
+            </div>
+            <div class="projects-image" id="projectsContainer">
+                <div class="images_part-1 all coded">
+                    <img src="./assets/Project.png" alt=""/>
+                    <img src="./assets/Project3.png" alt=""/>
+                    <img src="./assets/Project4.png" alt=""/>
+                </div>
+                <p></p>
+                <div class="images_part-1 all designed hidden">
+                    <img src="./assets/Project5.png" alt=""/>
+                    <img src="./assets/Project6.png" alt=""/>
+                    <img src="./assets/Rectangle 17.png" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="register_bar">
+        <div class="title-bar">Clean Login</div>
+
+        <div class="info-bar">
+            Simple login screen create by
+            <a href="http://ihateonions.uk" target="blank">Abduhamid Ikramov</a>
+        </div>
+
+        <div class="wrap">
+            <form method="post">
+                <input type="text" id="username" placeholder="Username"/>
+                <input type="password" id="password" placeholder="Password"/>
+                <input type="submit" class="submit" id="login" value="Login"/>
+            </form>
+        </div>
+    </div>
+    </div>
+</main>
+
+<!-- Site footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h6>About</h6>
+                <p class="text-justify">
+                    Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to
+                    help the upcoming programmers with the code. Scanfcode focuses on
+                    providing the most efficient code or snippets as the code wants to
+                    be simple. We will help programmers build up concepts in different
+                    programming languages that include C, C++, Java, HTML, CSS,
+                    Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.
+                </p>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>Categories</h6>
+                <ul class="footer-links">
+                    <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
+                    <li>
+                        <a href="http://scanfcode.com/category/front-end-development/"
+                        >UI Design</a
+                        >
+                    </li>
+                    <li>
+                        <a href="http://scanfcode.com/category/back-end-development/"
+                        >PHP</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                href="http://scanfcode.com/category/java-programming-language/"
+                        >Java</a
+                        >
+                    </li>
+                    <li>
+                        <a href="http://scanfcode.com/category/android/">Android</a>
+                    </li>
+                    <li>
+                        <a href="http://scanfcode.com/category/templates/">Templates</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>Quick Links</h6>
+                <ul class="footer-links">
+                    <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                    <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                    <li>
+                        <a href="http://scanfcode.com/contribute-at-scanfcode/"
+                        >Contribute</a
+                        >
+                    </li>
+                    <li>
+                        <a href="http://scanfcode.com/privacy-policy/"
+                        >Privacy Policy</a
+                        >
+                    </li>
+                    <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr/>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">
+                    Copyright &copy; 2017 All Rights Reserved by
+                    <a href="#">Scanfcode</a>.
+                </p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                    <li>
+                        <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a>
+                    </li>
+                    <li>
+                        <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"
+></script>
+<script>function showAll() {
+    showImages('.all img');
+}
+
+function showCoded() {
+    hideAll();
+    showImages('.coded img');
+}
+
+function showDesigned() {
+    hideAll();
+    showImages('.designed img');
+}
+
+function showImages(selector) {
+    const imagesToShow = document.querySelectorAll(selector);
+    imagesToShow.forEach(image => {
+        image.style.display = 'block';
+    });
+}
+
+function hideAll() {
+    const allImages = document.querySelectorAll('.images_part-1 img');
+    allImages.forEach(image => {
+        image.style.display = 'none';
+    });
+}</script>
+</body>
+</html>

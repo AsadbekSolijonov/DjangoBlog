@@ -48,3 +48,6 @@ def index(request, tag=None):
 
     return render(request, "blog/index.html", context=context)
 
+
+def home(request):
+    return render(request, 'home/home.html')
