@@ -1,384 +1,246 @@
-{% include 'blog/navbar.html' %}
-<!DOCTYPE html>
+{% block home %}
+    {% include 'blog/navbar.html' %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-    />
-    <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"
-    ></script>
-    <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-    ></script>
-    <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-    ></script>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-<header>
-    <div class="container">
-        <div class="header-flex">
-            <nav>
-                <ul>
-                    <li><a href="">About me</a></li>
-                    <li><a href="">Skills</a></li>
-                    <li><a href="">Portfolio</a></li>
-                    <li>
-                        <button class="contact-button">CONTACT ME</button>
-                    </li>
-                </ul>
-            </nav>
+  <header class="mb-5 pb-5">
+    <ul class="nav nav-pills pb-2 pt-2 pe-2 mb-7 d-flex justify-content-sm-end flex-wrap bg-black" id="pills-tab" role="tablist">
+
+      <li class="nav-item" role="presentation">
+        <button class="nav-link text-light px-5" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">About me</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link text-light px-5" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" tabindex="-1">Skills</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link text-light px-5" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled="" tabindex="-1">Portfolio</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active bg-light text-black   rounded-pill" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><strong>CONTACT ME</strong></button>
+      </li>
+
+    </ul>
+
+  </header>
+
+
+  <main>
+    <!-- Header section -->
+    <div class="main d-flex justify-content-around pt-5 mt-5 pb-5">
+      <div class="mt-5">
+
+        <img class="mb-5 pb-5" src="/images/logo 1.svg" alt="logo">
+        <h2>Hi, I am</h2>
+        <h1 class="pt-4">Abduhakimov Muhammadamin</h1>
+        <p class="mb-5 pb-5">Back-end developer</p>
+        <div class="mt-5">
+          <i class="fa-brands fa-telegram"></i>
+          <i class="fa-brands fa-github"></i>
+          <i class="fa-brands fa-twitter"></i>
         </div>
+      </div>
+      <div class="mt-5 pt-5">
+        <img src="/images/photo_2024-02-13_17-42-37.jpg" alt="photo">
+      </div>
     </div>
-</header>
 
-<main>
-    <div class="container-2">
-        <div class="bg-flex">
-            <div class="bg-left">
-                <img src="{% static 'images/logo 1.png' %}" alt=""/>
-                <div class="about-flex">
-                    <h1 class="about-text_1">Hi, I am</h1>
-                    <h2>Abduhamid Ikramov</h2>
-                    <h3>Fullstack developer</h3>
-                </div>
-                <div class="logo-flex">
-                    <div class="logo-block">
-                        <a href="https://mail.google.com/mail/u/0/#inbox">
-                            <img src="{% static 'images/Vector.png' %}" alt=""/>
-                        </a>
-                    </div>
-                    <div class="logo-block">
-                        <a href="https://github.com/abdukhamid12">
-                            <img src="{% static 'images/dog.png' %}" alt=""/>
-                        </a>
-                    </div>
-                    <div class="logo-block">
-                        <a href="">
-                            <img src="{% static 'images/in.png' %}" alt=""/>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-right">
-                <div class="header-flex">
-                    <nav>
-                        <ul>
-                            <li><a href="">About me</a></li>
-                            <li><a href="">Skills</a></li>
-                            <li><a href="">Portfolio</a></li>
-                            <li>
-                                <button class="contact-button">CONTACT ME</button>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <img
-                        style="margin-top: 63px; width: 600px"
-                        src="{% static 'images/image 17.png' %}"
-                        alt=""
-                />
-            </div>
-        </div>
+    <!-- IT Beries -->
+    <div class="bg-black mt-5 p-5 pt-5 mb-5 pb-5 text-light">
+      <h2>IT BERRIES</h2>
+      <p style="padding-right: 19%;">Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus.
+        Sed ornare sit amet lorem sed
+        viverra. In vel urna quis libero viverra facilisis ut ac est. Morbi commodo, eros in dignissim tempus, lacus
+        odio rutrum augue, in semper sem magna quis tellus. Etiam enim erat, suscipit eu semper a, dictum sit amet elit.
+        Nunc egestas nisi eget enim gravida facilisis. Pellentesque laoreet varius turpis vel pharetra. Ut ante justo,
+        consequat vitae elementum tempor, accumsan nec eros. </p>
+      <div class="d-flex">
+        <p style="margin-right: 25px">|</p>
+        <p>READ MORE</p>
+        <p style="margin-left: 25px;">|</p>
+      </div>
     </div>
-    <div class="container-3">
-        <div class="berries_block">
-            <h1 class="berries_text">IT BERRIES</h1>
-            <p class="berries_more_text">
-                Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-                varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
-                quis libero viverra facilisis ut ac est. Morbi commodo, eros in
-                dignissim tempus, lacus odio rutrum augue, in semper sem magna quis
-                tellus. Etiam enim erat, suscipit eu semper a, dictum sit amet elit.
-                Nunc egestas nisi eget enim gravida facilisis. Pellentesque laoreet
-                varius turpis vel pharetra. Ut ante justo, consequat vitae elementum
-                tempor, accumsan nec eros.
-            </p>
-            <button class="berries_button">Read More</button>
+    <!-- About section1 -->
+    <div>
+      <div class="d-flex justify-content-around h-100px ">
+        <button type="button" class="shadow-lg mb-5 p-3 pr- pt-3 pb-3 pl- bg-body-tertiary rounded btn btn-outline-dark px-5">
+          <h1>ABOUT ME</h1>
+        </button>
+      </div>
+      <div style="margin-left: 370px; margin-right: 370px;" class="d-flex justify-content-center text-center">
+        <p>Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. Sed ornare sit amet lorem
+          sed viverra. In vel urna quis libero viverra facilisis ut ac est.</p>
+
+      </div>
+      <div class="d-flex justify-content-center pt-5 pb-5">
+        <p style="margin-right: 25px">|</p>
+        <p>READ MORE</p>
+        <p style="margin-left: 25px;">|</p>
+      </div>
+      <div class="d-flex justify-content-center pt-5 pb-5 mb-5">
+        <img src="/images/separatorBlack1.png" alt="svg">
+      </div>
+
+      <div>
+        <div class="d-flex justify-content-center pt-5 mx-5 ">
+          <div class="px-5 mx-5">
+            <h5>DESIGN</h5>
+            <p>I can design the site based on your needs and suggestions. I can also design the site from scratch and
+              consult you during the job.</p>
+          </div>
+          <div class="px-5 mx-5">
+            <h5>DEVELOPMENT</h5>
+            <p>I can design the site based on your needs and suggestions. I can also design the site from scratch and
+              consult you during the job.</p>
+          </div>
         </div>
+        <div class="d-flex justify-content-center pt-5 pb-5 mb-5">
+          <div style="margin-left: 500px; margin-right: 500px;">
+            <h5>MAINTENANCE</h5>
+            <p class="mb-5 pb-4">I can design the site based on your needs and suggestions. I can also design the site
+              from scratch and
+              consult you during the job.</p>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center pt-5 pb-5">
+          <img src="/images/separatorBlack1.png" alt="svg">
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div>
+        <div class="d-flex justify-content-around h-100px ">
+          <button type="button" class="shadow-lg mb-5 p-3 pr- pt-3 pb-3 pl- bg-body-tertiary rounded btn btn-outline-dark px-5 ">
+            <h1>Skills</h1>
+          </button>
+        </div>
+        <div class="d-flex mx-5 px-5">
+          <h2 class="mx-5 px-5">USING NOW:</h2>
+        </div>
+        <div class="d-flex pt-5  px-5 mx-5">
+          <div class="">
+            <div class="d-flex text-center mx-5 px-5 ">
+              <div class="px-5 mx-5">
+                <img style="margin-bottom: 15px ;" src="/images/html.svg" alt="html">
+                <p>HTML5</p>
+              </div>
+              <div class="px-5 mx-5">
+                <img style="margin-bottom: 15px ;" src="/images/css.svg" alt="css">
+                <p>CSS3</p>
+              </div>
+              <div class="px-5 mx-5">
+                <img style="margin-bottom: 15px ;" src="/images/bootstrap.svg" alt="bootstrap">
+                <p>BOOTSTRAP</p>
+              </div>
+              <div class="px-5 mx-5">
+                <img style="margin-bottom: 15px ;" src="/images/git.svg" alt="git">
+                <p>GIT</p>
+              </div>
+            </div>
+
+            <div class="d-flex text-center mx-5 px-5 pt-5">
+              <div class="px-5 mx-5">
+                <img style="margin-bottom: 15px ;" src="/images/figma.svg" alt="html">
+                <p>FIGMA</p>
+              </div>
+              <div class="px-5 mx-5">
+                <img style="margin-bottom: 15px ;" src="/images/js.svg" alt="css">
+                <p>JAVASCRIPT</p>
+              </div>
+              <div class="px-5 mx-5">
+                <img style="margin-bottom: 15px ;" src="/images/git.svg" alt="git">
+                <p>GIT</p>
+              </div>
+              <div class="px-5 mx-5">
+                <img style="margin-bottom: 15px ;" src="/images/bootstrap.svg" alt="bootstrap">
+                <p>BOOTSTRAP</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Portfoilo -->
+        <div class="pt-5 mt-5">
+          <div class="d-flex justify-content-around h-100px ">
+            <button type="button" class="shadow-lg mb-5 p-3 pr- pt-3 pb-3 pl- bg-body-tertiary rounded btn btn-outline-dark px-5">
+              <h1>PORTFOLIO</h1>
+            </button>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center text-center bg-dark pt-5 ">
+          <div>
+            <p class="text-light">ALL</p>
+            <button style="height: 5px;" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active mb-5 mx-5 px-5" aria-current="true" aria-label="Slide 1"></button>
+          </div>
+          <div>
+            <p class="text-light">CODED</p>
+            <button style="height: 5px;" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active mb-5 mx-5 px-5" aria-current="true" aria-label="Slide 2"></button>
+          </div>
+          <div>
+            <p class="text-light">DESIGNED</p>
+            <button style="height: 5px;" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active mb-5 mx-5 px-5" aria-current="true" aria-label="Slide 3"></button>
+          </div>
+
+        </div>
+        <div>
+          <img class="w-100" src="/images/portfolio.png" alt="portfolio">
+        </div>
+        <div class="bg-dark text-light pt-3 pb-2 text-center">
+          <p>And many more to come!</p>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+
+        <div class="pt-5 mt-5">
+          <div class="d-flex justify-content-around h-100px ">
+            <button type="button" class="shadow-lg mb-5 p-3 pr- pt-3 pb-3 pl- bg-body-tertiary rounded btn btn-outline-dark px-5">
+              <h1>CONTACT</h1>
+            </button>
+          </div>
+        </div>
+
+
+        <div style="margin-left: 370px; margin-right: 370px;" class="d-flex justify-content-center text-center">
+          <p>Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. Sed ornare sit amet lorem
+            sed viverra. In vel urna quis libero viverra facilisis ut ac est.</p>
+        </div>
+
+        <div class="d-flex justify-content-center pt-5 pb-5 mb-5">
+          <img src="/images/separatorBlack1.png" alt="svg">
+        </div>
+
+
+
+      </div>
+
+
+
     </div>
-    <div class="container-4">
-        <div class="about-me_block">
-            <div class="about_mini_block">
-                <button class="big_button">ABOUT ME</button>
-                <p class="about_paragraph">
-                    Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-                    varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
-                    quis libero viverra facilisis ut ac est.
-                </p>
-                <button class="explore_button">EXPLORE</button>
-                <div class="service_block">
-                    <div class="two_service-flex">
-                        <div class="design-service">
-                            <h1 class="design-text">Design</h1>
-                            <p class="design-big_text">
-                                I can design the site based on your needs and suggestions. I
-                                can also design the site from scratch and consult you during
-                                the job.
-                            </p>
-                        </div>
-                        <div class="development-service">
-                            <h1 class="development-text">Development</h1>
-                            <p>
-                                I can design the site based on your needs and suggestions. I
-                                can also design the site from scratch and consult you during
-                                the job.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="last_maintenance-service">
-                        <h1 class="maintenance-text">Maintenance</h1>
-                        <p>
-                            I can design the site based on your needs and suggestions. I
-                            can also design the site from scratch and consult you during
-                            the job.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="skills_block">
-            <button style="margin-left: 300px" class="big_button">SKILLS</button>
-            <div class="big_skills_flex">
-                <h1 class="using-text">Using Now:</h1>
-                <div class="using-flex">
-                    <div class="using_block-1">
-                        <img src="./assets/Group 12.svg" alt=""/>
-                        <img src="./assets/Group 13.svg" alt=""/>
-                        <img src="./assets/Group 14.svg" alt=""/>
-                        <img src="./assets/Group.svg" alt=""/>
-                    </div>
-                    <div class="using-block-2">
-                        <img src="./assets/bootstrap.svg" alt=""/>
-                        <img src="./assets/figma.svg" alt=""/>
-                        <img src="./assets/Vector.svg" alt=""/>
-                        <img
-                                style="width: 130px"
-                                src="./assets/OIP__8_-removebg-preview.png"
-                                alt=""
-                        />
-                    </div>
-                </div>
-                <h1 class="learning-text">Learning:</h1>
-                <div class="learning-flex">
-                    <div class="using_block-1">
-                        <img src="./assets/Group (1).png" alt=""/>
-                        <img src="./assets/Group (2).png" alt=""/>
-                        <img
-                                style="width: 270px"
-                                src="./assets/OIP__9_-removebg-preview.png"
-                                alt=""
-                        />
-                    </div>
-                </div>
-                <div style="margin-top: -250px" class="other-skills">
-                    <h1 class="other-text">Other skills:</h1>
-                    <div class="using_block-1">
-                        <img
-                                style="width: 270px"
-                                src="./assets/R__3_-removebg-preview (1).png"
-                                alt=""
-                        />
-                        <img
-                                style="width: 180px"
-                                src="./assets/R__8_-removebg-preview.png"
-                                alt=""
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-5">
-        <div class="portfolio-img">
-            <button class="portfolio_button">Portfolio</button>
-        </div>
-        <div class="my_projects">
-            <div class="projects_header">
-                <button onclick="showAll()">All</button>
-                <button onclick="showCoded()">Coded</button>
-                <button onclick="showDesigned()">Designed</button>
-            </div>
-            <div class="projects-image" id="projectsContainer">
-                <div class="images_part-1 all coded">
-                    <img src="./assets/Project.png" alt=""/>
-                    <img src="./assets/Project3.png" alt=""/>
-                    <img src="./assets/Project4.png" alt=""/>
-                </div>
-                <p></p>
-                <div class="images_part-1 all designed hidden">
-                    <img src="./assets/Project5.png" alt=""/>
-                    <img src="./assets/Project6.png" alt=""/>
-                    <img src="./assets/Rectangle 17.png" alt=""/>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="register_bar">
-        <div class="title-bar">Clean Login</div>
 
-        <div class="info-bar">
-            Simple login screen create by
-            <a href="http://ihateonions.uk" target="blank">Abduhamid Ikramov</a>
-        </div>
+  </main>
 
-        <div class="wrap">
-            <form method="post">
-                <input type="text" id="username" placeholder="Username"/>
-                <input type="password" id="password" placeholder="Password"/>
-                <input type="submit" class="submit" id="login" value="Login"/>
-            </form>
-        </div>
-    </div>
-    </div>
-</main>
 
-<!-- Site footer -->
-<footer class="site-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <h6>About</h6>
-                <p class="text-justify">
-                    Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to
-                    help the upcoming programmers with the code. Scanfcode focuses on
-                    providing the most efficient code or snippets as the code wants to
-                    be simple. We will help programmers build up concepts in different
-                    programming languages that include C, C++, Java, HTML, CSS,
-                    Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.
-                </p>
-            </div>
 
-            <div class="col-xs-6 col-md-3">
-                <h6>Categories</h6>
-                <ul class="footer-links">
-                    <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-                    <li>
-                        <a href="http://scanfcode.com/category/front-end-development/"
-                        >UI Design</a
-                        >
-                    </li>
-                    <li>
-                        <a href="http://scanfcode.com/category/back-end-development/"
-                        >PHP</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                                href="http://scanfcode.com/category/java-programming-language/"
-                        >Java</a
-                        >
-                    </li>
-                    <li>
-                        <a href="http://scanfcode.com/category/android/">Android</a>
-                    </li>
-                    <li>
-                        <a href="http://scanfcode.com/category/templates/">Templates</a>
-                    </li>
-                </ul>
-            </div>
 
-            <div class="col-xs-6 col-md-3">
-                <h6>Quick Links</h6>
-                <ul class="footer-links">
-                    <li><a href="http://scanfcode.com/about/">About Us</a></li>
-                    <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                    <li>
-                        <a href="http://scanfcode.com/contribute-at-scanfcode/"
-                        >Contribute</a
-                        >
-                    </li>
-                    <li>
-                        <a href="http://scanfcode.com/privacy-policy/"
-                        >Privacy Policy</a
-                        >
-                    </li>
-                    <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
-                </ul>
-            </div>
-        </div>
-        <hr/>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-6 col-xs-12">
-                <p class="copyright-text">
-                    Copyright &copy; 2017 All Rights Reserved by
-                    <a href="#">Scanfcode</a>.
-                </p>
-            </div>
 
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <ul class="social-icons">
-                    <li>
-                        <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li>
-                        <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li>
-                        <a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a>
-                    </li>
-                    <li>
-                        <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
 
-<script
-        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"
-></script>
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"
-></script>
-<script>function showAll() {
-    showImages('.all img');
-}
 
-function showCoded() {
-    hideAll();
-    showImages('.coded img');
-}
 
-function showDesigned() {
-    hideAll();
-    showImages('.designed img');
-}
 
-function showImages(selector) {
-    const imagesToShow = document.querySelectorAll(selector);
-    imagesToShow.forEach(image => {
-        image.style.display = 'block';
-    });
-}
 
-function hideAll() {
-    const allImages = document.querySelectorAll('.images_part-1 img');
-    allImages.forEach(image => {
-        image.style.display = 'none';
-    });
-}</script>
-</body>
-</html>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+</body></html>
+{% endblock %}
