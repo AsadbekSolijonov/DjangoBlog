@@ -1,7 +1,8 @@
 import json
 
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+
+from blog.forms import CommentForm
 from blog.models import Blog, Category
 from itertools import groupby
 from django.utils.timezone import localtime
@@ -51,3 +52,17 @@ def index(request, tag=None):
 
 def home(request):
     return render(request, 'home/home.html')
+
+
+def add_comment_to_post(request, pk):
+    blog = get_object_or_404(Blog, id=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = blog
+            comment.save()
+            return redirect('blog/index.html')
+    else:
+        form = CommentForm()
+    return render(request, 'blog/index.html', context={"comment_form": form})

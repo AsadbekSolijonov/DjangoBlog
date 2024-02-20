@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -21,3 +22,11 @@ class Blog(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+
+class Comment(models.Model):
+    blog = models.ForeignKey(Blog, related_name='blog', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='author', on_delete=models.CASCADE)
+    message = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)

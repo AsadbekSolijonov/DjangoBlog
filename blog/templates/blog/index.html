@@ -84,6 +84,15 @@
                                             <code class="text-dark">{{ blog.created }}</code>
                                         </p>
                                     </div>
+
+                                    {# Comments start #}
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="post_pk" value="{{ post.pk }}">
+                                        {{ comment_form.message }}
+                                        <button class="btn btn-dark" type="submit">Add Comment</button>
+                                    </form>
+                                    {# Comments end #}
                                 </div>
                             </div>
                         </div>
