@@ -40,10 +40,13 @@ def index(request, tag=None):
 
     categories = Category.objects.all()
 
+    form = CommentForm()
+
     context = {
         "grouped_blogs_month": group_month,
         "grouped_blogs_year": group_year,
         "categories": categories,
+        "form": form,
         "count": {"year": len(group_year), "month": len(group_month), "blog": blogs.count()}
     }
 
@@ -60,9 +63,9 @@ def add_comment_to_post(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.post = blog
+            comment.blog = blog
             comment.save()
-            return redirect('blog/index.html')
+            return redirect('/')
     else:
         form = CommentForm()
-    return render(request, 'blog/index.html', context={"comment_form": form})
+    return render(request, 'blog/index.html', context={"form": form})

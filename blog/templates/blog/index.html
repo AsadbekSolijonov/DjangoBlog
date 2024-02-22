@@ -75,9 +75,25 @@
                                         {# Icons #}
                                         <p>
                                             {# Chat Icon #}
-                                            <i class="bi bi-chat-text"></i>
+                                            <button type="button" class="btn btn-light position-relative"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="message">
+                                                {# Inbox start#}
+                                                <i class="bi bi-chat-text"></i>
+                                                {# Inbox end #}
+                                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">{{ blog.comments.all.count }}
+                                                    <span class="visually-hidden">unread messages</span>
+                                                </span>
+                                            </button>
                                             {# Star Icon #}
-                                            <i class="bi bi-star"></i>
+                                            <button type="button" class="btn btn-light position-relative"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="like">
+                                                {# star start#}
+                                                <i class="bi bi-star"></i>
+                                                {# star end #}
+                                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark"> 0
+                                                    <span class="visually-hidden">unread messages</span>
+                                                </span>
+                                            </button>
                                         </p>
                                         {# Watch #}
                                         <p class="text-end">
@@ -86,13 +102,24 @@
                                     </div>
 
                                     {# Comments start #}
-                                    <form method="post">
+                                    <form method="post" action="{% url 'add_comment_to_post' blog.id %}">
                                         {% csrf_token %}
-                                        <input type="hidden" name="post_pk" value="{{ post.pk }}">
-                                        {{ comment_form.message }}
-                                        <button class="btn btn-dark" type="submit">Add Comment</button>
+                                        <input type="hidden" name="post_pk" value="{{ blog.pk }}">
+                                        {{ form }}
+                                        <button class="btn btn-dark mt-2" type="submit">Add Comment</button>
                                     </form>
                                     {# Comments end #}
+
+                                    <div style="height: 100px; position: relative; overflow-y: scroll;"
+                                         data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0"
+                                         class="scrollspy-example px-1 py-1" tabindex="0">
+                                        {# All Comments start #}
+                                        {% for comment in blog.comments.all %}
+                                            <p>{{ comment.author }}</p>
+                                            <p>{{ comment.message }}</p>
+                                        {% endfor %}
+                                        {# All Comments end #}
+                                    </div>
                                 </div>
                             </div>
                         </div>

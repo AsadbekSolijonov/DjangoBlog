@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Blog, Category
+from blog.models import Blog, Category, Comment
 
 
 @admin.register(Category)
@@ -36,3 +36,8 @@ class BlogAdmin(admin.ModelAdmin):
         if len(text) > length:
             return f'{text[:length]}...'
         return text
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'blog', 'author', 'message', 'created', 'updated')
