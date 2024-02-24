@@ -108,18 +108,24 @@
                                         {{ form }}
                                         <button class="btn btn-dark mt-2" type="submit">Add Comment</button>
                                     </form>
-                                    {# Comments end #}
 
-                                    <div style="height: 100px; position: relative; overflow-y: scroll;"
-                                         data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0"
-                                         class="scrollspy-example px-1 py-1" tabindex="0">
-                                        {# All Comments start #}
-                                        {% for comment in blog.comments.all %}
-                                            <p>{{ comment.author }}</p>
-                                            <p>{{ comment.message }}</p>
-                                        {% endfor %}
-                                        {# All Comments end #}
-                                    </div>
+                                    {# All Comments start #}
+                                    {% if blog.comments.all %}
+                                        {# Comments end #}
+                                        <div style="height: 100px; position: relative; overflow-y: scroll;"
+                                             data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0"
+                                             class="scrollspy-example px-1 mt-2 box-shadow bg-dark text-white"
+                                             tabindex="0">
+                                            {# All Comments start #}
+                                            {% for comment in blog.comments.all %}
+                                                <p>{{ comment.author }}</p>
+                                                <p>{{ comment.message }}</p>
+                                            {% endfor %}
+                                            {# All Comments end #}
+                                        </div>
+                                    {% endif %}
+                                    {# All Comments end #}
+
                                 </div>
                             </div>
                         </div>
