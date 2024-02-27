@@ -112,14 +112,22 @@
                                     {# All Comments start #}
                                     {% if blog.comments.all %}
                                         {# Comments end #}
-                                        <div style="height: 100px; position: relative; overflow-y: scroll;"
+                                        <div style="height: 200px; position: relative; overflow-y: scroll;"
                                              data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0"
-                                             class="scrollspy-example px-1 mt-2 box-shadow bg-dark text-white"
+                                             class="scrollspy-example my-3 box-shadow text-white"
                                              tabindex="0">
                                             {# All Comments start #}
                                             {% for comment in blog.comments.all %}
-                                                <p>{{ comment.author }}</p>
-                                                <p>{{ comment.message }}</p>
+                                                <div class="card my-3">
+                                                    <div class="card-header">
+                                                        <i class="bi bi-person-fill"></i> <b>{{ comment.author }}</b>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <small>
+                                                            {{ comment.message }}
+                                                        </small>
+                                                    </div>
+                                                </div>
                                             {% endfor %}
                                             {# All Comments end #}
                                         </div>
