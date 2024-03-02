@@ -31,7 +31,6 @@
             </div>
         </h5>
         {# End Results, Years, Months, Blogs #}
-
         {# start accordion #}
         {% for year, blogs in grouped_blogs_year.items %}
             <div class="accordion" id="accordionExample">
@@ -49,11 +48,11 @@
                                         data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapse{{ blog.id }}"
                                         aria-expanded="false" aria-controls="flush-collapse{{ blog.id }}">
-                                    <img class="profile_img border border-1"
+                                    <img class="profile_img border border-1 d-none  d-sm-none d-md-none d-lg-inline"
                                          style="background-image: url({{ blog.image.url }})">
                                     <div class="blog-header">
                                         <div>
-                                            <b class="fw-normal">{{ blog.title | truncatewords:8 }}</b>
+                                            <b class="fw-medium">{{ blog.title | truncatewords:8 }}</b>
                                             <br class="mt-1">
                                             {# start blog Categories #}
                                             {% for category in blog.category.all %}
@@ -61,7 +60,7 @@
                                             {% endfor %}
                                             {# end blog Categories #}
                                         </div>
-                                        <code class="text-body-secondary">{{ blog.created | timesince }} ago</code>
+                                        <code class="text-body-secondary d-none  d-sm-none d-md-inline d-lg-inline">{{ blog.created | timesince }} ago</code>
                                     </div>
                                 </button>
                             </h2>
@@ -74,16 +73,6 @@
                                     <div class="d-flex justify-content-between">
                                         {# Icons #}
                                         <p>
-                                            {# Chat Icon #}
-                                            <button type="button" class="btn btn-light position-relative"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="message">
-                                                {# Inbox start#}
-                                                <i class="bi bi-chat-text"></i>
-                                                {# Inbox end #}
-                                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">{{ blog.comments.all.count }}
-                                                    <span class="visually-hidden">unread messages</span>
-                                                </span>
-                                            </button>
                                             {# Star Icon #}
                                             <button type="button" class="btn btn-light position-relative"
                                                     data-bs-toggle="tooltip" data-bs-placement="top" title="like">
@@ -108,7 +97,23 @@
                                         {{ form }}
                                         <button class="btn btn-dark mt-2" type="submit">Add Comment</button>
                                     </form>
-                                    <p class="mt-3">Comments</p>
+                                <div class="d-flex justify-content-start py-3 border-bottom">
+                                    <p>
+                                        {# Chat Icon #}
+                                        <button type="button" class="btn btn-light position-relative"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="message">
+                                            {# Inbox start#}
+                                            <i class="bi bi-chat-text"></i>
+                                            {# Inbox end #}
+                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">{{ blog.comments.all.count }}
+                                                    <span class="visually-hidden">unread messages</span>
+                                                </span>
+                                        </button>
+                                    </p>
+                                    <!-- Comments -->
+                                    <b class="d-flex align-items-center px-2">Comments</b>
+                                    <!-- /Comments -->
+                                </div>
                                     {# All Comments start #}
                                     {% if blog.comments.all %}
                                         {# Comments end #}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Blog, Category, Comment
+from blog.models import Blog, Category, Comment, ClientInfo
 
 
 @admin.register(Category)
@@ -41,3 +41,8 @@ class BlogAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('id', 'blog', 'author', 'message', 'created', 'updated')
+
+
+@admin.register(ClientInfo)
+class ClientAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'email', 'phone_number', 'message', 'created')

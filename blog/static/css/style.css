@@ -7,7 +7,7 @@
 /*blog image*/
 .profile_img {
     width: 48px;
-    border-radius: 50%;
+    border-radius: 20%;
     height: 42px;
     background-size: cover;
     background-position: center;
