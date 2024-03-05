@@ -63,3 +63,28 @@ a {
     text-decoration: none !important;
     color: black !important;
 }
+
+@media screen and (min-width: 768px){
+    .res-width {
+        width: 50%!important;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .res-width {
+        width: 45%!important;
+    }
+}
+
+@media screen and (min-width: 1300px){
+    .res-width {
+        width: 30%!important;
+    }
+}
+
+
+@media screen and (max-width: 576px){
+    .res-width {
+        width: 90%!important;
+    }
+}

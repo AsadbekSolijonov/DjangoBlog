@@ -56,11 +56,13 @@
                                             <br class="mt-1">
                                             {# start blog Categories #}
                                             {% for category in blog.category.all %}
-                                                <b class="badge text-bg-light fw-normal">#{{ category.name }}</b>
+                                                <a class="badge text-bg-light fw-normal"
+                                                   href="{% url 'category_tag' category.name %}">#{{ category.name }}</a>
                                             {% endfor %}
                                             {# end blog Categories #}
                                         </div>
-                                        <code class="text-body-secondary d-none  d-sm-none d-md-inline d-lg-inline">{{ blog.created | timesince }} ago</code>
+                                        <code class="text-body-secondary d-none  d-sm-none d-md-inline d-lg-inline">{{ blog.created | timesince }}
+                                            ago</code>
                                     </div>
                                 </button>
                             </h2>
@@ -89,31 +91,39 @@
                                             <code class="text-dark">{{ blog.created }}</code>
                                         </p>
                                     </div>
-
+                                    <div class="fw-bold">Write a Comment</div>
                                     {# Comments start #}
                                     <form method="post" action="{% url 'add_comment_to_post' blog.id %}">
                                         {% csrf_token %}
                                         <input type="hidden" name="post_pk" value="{{ blog.pk }}">
-                                        {{ form }}
+                                        <div class="form-floating mt-2">
+                                            {{ form.author }}
+                                            <label>Name</label>
+                                        </div>
+                                        <div class="form-floating mt-2">
+                                            {{ form.message }}
+                                            <label>Message</label>
+                                        </div>
                                         <button class="btn btn-dark mt-2" type="submit">Add Comment</button>
                                     </form>
-                                <div class="d-flex justify-content-start py-3 border-bottom">
-                                    <p>
-                                        {# Chat Icon #}
-                                        <button type="button" class="btn btn-light position-relative"
-                                                data-bs-toggle="tooltip" data-bs-placement="top" title="message">
-                                            {# Inbox start#}
-                                            <i class="bi bi-chat-text"></i>
-                                            {# Inbox end #}
-                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">{{ blog.comments.all.count }}
+                                    {# Comments end #}
+                                    <div class="d-flex justify-content-start py-3 border-bottom">
+                                        <p>
+                                            {# Chat Icon #}
+                                            <button type="button" class="btn btn-light position-relative"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="message">
+                                                {# Inbox start#}
+                                                <i class="bi bi-chat-text"></i>
+                                                {# Inbox end #}
+                                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark">{{ blog.comments.all.count }}
                                                     <span class="visually-hidden">unread messages</span>
                                                 </span>
-                                        </button>
-                                    </p>
-                                    <!-- Comments -->
-                                    <b class="d-flex align-items-center px-2">Comments</b>
-                                    <!-- /Comments -->
-                                </div>
+                                            </button>
+                                        </p>
+                                        <!-- Comments -->
+                                        <b class="d-flex align-items-center px-2 fw-bold">Comments</b>
+                                        <!-- /Comments -->
+                                    </div>
                                     {# All Comments start #}
                                     {% if blog.comments.all %}
                                         {# Comments end #}
@@ -122,7 +132,7 @@
                                              class="scrollspy-example my-3 box-shadow text-white"
                                              tabindex="0">
                                             {# All Comments start #}
-                                            {% for comment in blog.comments.all %}
+                                            {% for comment in blog.comments.all|slice:"::-1" %}
                                                 <div class="card my-3">
                                                     <div class="card-header">
                                                         <i class="bi bi-person-fill"></i> <b>{{ comment.author }}</b>

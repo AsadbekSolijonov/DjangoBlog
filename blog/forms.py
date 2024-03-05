@@ -10,7 +10,8 @@ class CommentForm(forms.ModelForm):
         widgets = {
             'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your name'}),
             'message': forms.Textarea(
-                attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Enter your comment here'}),
+                attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Enter your comment here',
+                       "style": "height: 119px;"}),
         }
 
 
@@ -23,5 +24,6 @@ class ClientInfoForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter your email'}),
             'phone_number': forms.TextInput(attrs={'class': "form-control", 'placeholder': 'Enter phone number'}),
             'message': forms.Textarea(
-                attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Enter your comment here'}),
+                attrs={'class': 'form-control', "rows": 10, 'placeholder': 'Enter your comment here',
+                       "style": "height: 119px;"}),
         }

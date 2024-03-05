@@ -1,14 +1,29 @@
 import json
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 
 from blog.forms import CommentForm, ClientInfoForm
 from blog.models import Blog, Category
 from itertools import groupby
 from django.utils.timezone import localtime
+from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import reverse_lazy
+
+
+# Login
+class CustomLoginView(LoginView):
+    template_name = 'auth/login.html'
+    redirect_authenticated_user = True
+
+
+# Logout
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('login')
 
 
 # Create your views here.
+@login_required
 def index(request, tag=None):
     if not tag:
         blogs = Blog.objects.order_by("-created")
@@ -53,6 +68,7 @@ def index(request, tag=None):
     return render(request, "blog/index.html", context=context)
 
 
+@login_required
 def home(request):
     if request.method == "POST":
         form = ClientInfoForm(request.POST)
@@ -68,6 +84,7 @@ def home(request):
     return render(request, 'home/home.html', context=context)
 
 
+@login_required
 def add_comment_to_post(request, pk):
     blog = get_object_or_404(Blog, id=pk)
     if request.method == "POST":

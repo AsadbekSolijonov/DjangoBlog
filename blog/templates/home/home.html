@@ -242,14 +242,31 @@
                     amet lorem sed viverra. In vel urna quis libero viverra facilisis ut ac est.
                 </p>
             </div>
-
-            <h1 class="text-center mt-5 text-dark">Subscribe to Us</h1>
-            <div class="d-flex justify-content-center py-5 mb-5">
-                <form action="{% url 'home' %}" method="POST">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button type="submit" class="btn btn-dark mt-2">Submit</button>
-                </form>
+            <div class="shadow container py-4 my-5 rounded-4 res-width">
+                <h1 class="text-center mt-3 text-dark">Subscribe to Us</h1>
+                <div class="d-flex justify-content-center">
+                    <form action="{% url 'home' %}" method="POST">
+                        {% csrf_token %}
+                        <!-- from-floating-->
+                        <div class="form-floating mt-2">
+                            {{ form.user }}
+                            <label>Name</label>
+                        </div>
+                        <div class="form-floating mt-2">
+                            {{ form.email }}
+                            <label>Email</label>
+                        </div>
+                        <div class="form-floating mt-2">
+                            {{ form.phone_number }}
+                            <label>Phone</label>
+                        </div>
+                        <div class="form-floating mt-2">
+                            {{ form.message }}
+                            <label>Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-dark mt-2">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
         <!-- Contact start end -->
