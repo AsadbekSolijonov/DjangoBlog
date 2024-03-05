@@ -18,6 +18,7 @@
 
 {# start blog content#}
 {% block content %}
+    Hello, {{ user.username|default:'Guest' }}!
     {# start container #}
     <div class="mt-4">
         {# Start Results, Years, Months, Blogs #}

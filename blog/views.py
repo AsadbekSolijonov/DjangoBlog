@@ -13,7 +13,7 @@ from django.urls import reverse_lazy
 
 # Login
 class CustomLoginView(LoginView):
-    template_name = 'auth/login.html'
+    template_name = 'registration/login.html'
     redirect_authenticated_user = True
 
 
@@ -23,7 +23,7 @@ class CustomLogoutView(LogoutView):
 
 
 # Create your views here.
-@login_required
+# @login_required
 def index(request, tag=None):
     if not tag:
         blogs = Blog.objects.order_by("-created")
