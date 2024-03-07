@@ -18,7 +18,17 @@
 
 {# start blog content#}
 {% block content %}
+    <!-- Login -->
     Hello, {{ user.username|default:'Guest' }}!
+    <div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+    <!-- /Login -->
+
     {# start container #}
     <div class="mt-4">
         {# Start Results, Years, Months, Blogs #}

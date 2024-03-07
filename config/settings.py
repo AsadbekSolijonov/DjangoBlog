@@ -49,6 +49,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',  # new
 ]
 
+# awesome_website/settings.py
+
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -110,6 +113,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
+LOGIN_REDIRECT_URL = "index"
+LOGOUT_REDIRECT_URL = "index"
 
 STATIC_URL = 'blog/static/'
 STATIC_FILES_DIRS = (BASE_DIR / 'blog/static/')
