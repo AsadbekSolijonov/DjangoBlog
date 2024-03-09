@@ -68,7 +68,7 @@ def index(request, tag=None):
     return render(request, "blog/index.html", context=context)
 
 
-@login_required
+# @login_required
 def home(request):
     if request.method == "POST":
         form = ClientInfoForm(request.POST)
@@ -84,7 +84,7 @@ def home(request):
     return render(request, 'home/home.html', context=context)
 
 
-@login_required
+# @login_required
 def add_comment_to_post(request, pk):
     blog = get_object_or_404(Blog, id=pk)
     if request.method == "POST":
@@ -97,3 +97,5 @@ def add_comment_to_post(request, pk):
     else:
         form = CommentForm()
     return render(request, 'blog/index.html', context={"form": form})
+
+
