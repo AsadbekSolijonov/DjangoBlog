@@ -33,6 +33,7 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'blog',
     'django.contrib.admin',
     'django.contrib.auth',
