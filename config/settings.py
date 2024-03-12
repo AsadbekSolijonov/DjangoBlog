@@ -28,8 +28,7 @@ if not SECRET_KEY:
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
-if not DEBUG:
-    DEBUG = True
+
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
@@ -158,9 +157,9 @@ LOGOUT_REDIRECT_URL = "index"
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
-STATIC_FILES_DIRS = [BASE_DIR / 'blog/static/']
+STATICFILES_DIRS = [BASE_DIR / 'blog/static/']
 
-MEDIA_URL = 'media/'  # new
+MEDIA_URL = '/media/'  # new
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
 
 # Default primary key field type
