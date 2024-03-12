@@ -147,7 +147,7 @@ LOGOUT_REDIRECT_URL = "index"
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = [BASE_DIR / 'blog/static/']
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = '/media/'  # new
 # MEDIA_URL = 'https://myblogcode.onrender.com/media/' if not HOSTS else '/media/'  # new
