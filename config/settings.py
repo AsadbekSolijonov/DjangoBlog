@@ -20,22 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-(&a9g)l$6c4s@ea(hcubipuww3n#be%uawi$k^h_-pkg_mtj#w'
-SECRET_KEY = os.environ.get('SECRET_KEY')
-if not SECRET_KEY:
-    SECRET_KEY = 'django-insecure-(&a9g)l$6c4s@ea(hcubipuww3n#be%uawi$k^h_-pkg_mtj#w'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-(&a9g)l$6c4s@ea(hcubipuww3n#be%uawi$k^h_-pkg_mtj#w')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'false'
 
-
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
-if ALLOWED_HOSTS:
-    ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
-else:
-    ALLOWED_HOSTS = []
+HOSTS = os.environ.get('ALLOWED_HOSTS')
+ALLOWED_HOSTS = HOSTS.split(' ') if HOSTS else []
 
 # Application definition
 
@@ -92,10 +84,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-# 'postgres://back472_blog_user:G6BdUXUTjruB9deJPY6PGGBCxR4wmJNe@dpg-cno0qkn109ks73ch112g-a.oregon-postgres.render.com/back472_blog'
-database_url = 'postgres://back472_blog_user:G6BdUXUTjruB9deJPY6PGGBCxR4wmJNe@dpg-cno0qkn109ks73ch112g-a.oregon-postgres.render.com/back472_blog'
-# database_url = os.environ.get('DATABASE_URL')
+url = 'postgres://back472_blog_user:G6BdUXUTjruB9deJPY6PGGBCxR4wmJNe@dpg-cno0qkn109ks73ch112g-a.oregon-postgres.render.com/back472_blog'
+database_url = os.environ.get('DATABASE_URL', url)
 DATABASES['default'] = dj_database_url.parse(database_url)
 
 # Password validation
@@ -159,8 +149,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [BASE_DIR / 'blog/static/']
 
-MEDIA_URL = '/media/'  # new
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
+MEDIA_URL = 'https://myblogcode.onrender.com/media/' if not HOSTS else '/media/'  # new
+MEDIA_ROOT = os.path.join('https://myblogcode.onrender.com/media' if HOSTS == '127.0.0.1:8000' else BASE_DIR, 'media')  # new
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
