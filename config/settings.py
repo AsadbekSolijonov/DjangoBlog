@@ -85,8 +85,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-database_url = os.environ.get('DATABASE_URL')
+
 # 'postgres://back472_blog_user:G6BdUXUTjruB9deJPY6PGGBCxR4wmJNe@dpg-cno0qkn109ks73ch112g-a.oregon-postgres.render.com/back472_blog'
+# database_url = 'postgres://back472_blog_user:G6BdUXUTjruB9deJPY6PGGBCxR4wmJNe@dpg-cno0qkn109ks73ch112g-a.oregon-postgres.render.com/back472_blog'
+database_url = os.environ.get('DATABASE_URL')
 DATABASES['default'] = dj_database_url.parse(database_url)
 
 # Password validation
@@ -147,6 +149,7 @@ LOGIN_REDIRECT_URL = "index"
 LOGOUT_REDIRECT_URL = "index"
 
 STATIC_URL = 'blog/static/'
+STATIC_ROOT = BASE_DIR / 'blog/static/'
 STATIC_FILES_DIRS = (BASE_DIR / 'blog/static/')
 
 MEDIA_URL = 'media/'  # new
