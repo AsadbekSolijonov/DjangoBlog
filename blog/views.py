@@ -1,14 +1,15 @@
 import json
 
+from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 
-from blog.forms import CommentForm, ClientInfoForm
+from blog.forms import CommentForm, ClientInfoForm, CustomUserCreationForm
 from blog.models import Blog, Category
 from itertools import groupby
 from django.utils.timezone import localtime
-from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView
+from django.urls import reverse_lazy, reverse
 
 
 # Login
@@ -99,3 +100,17 @@ def add_comment_to_post(request, pk):
     return render(request, 'blog/index.html', context={"form": form})
 
 
+# class CustomPasswordResetView(PasswordResetView):
+#     email_template_name = 'password_reset_done.html'
+#     success_url = '/accounts/password_reset/done/'  # URL to redirect after password reset request
+
+
+def register(request):
+    if request.method == 'GET':
+        return render(request, 'blog/register.html', {"form": CustomUserCreationForm})
+    elif request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect(reverse('index'))

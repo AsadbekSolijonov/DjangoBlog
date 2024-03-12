@@ -1,6 +1,7 @@
 from django import forms
 
 from blog.models import Comment, ClientInfo
+from django.contrib.auth.forms import UserCreationForm
 
 
 class CommentForm(forms.ModelForm):
@@ -27,3 +28,8 @@ class ClientInfoForm(forms.ModelForm):
                 attrs={'class': 'form-control', "rows": 10, 'placeholder': 'Enter your comment here',
                        "style": "height: 119px;"}),
         }
+
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        fields = UserCreationForm.Meta.fields + ("email",)
