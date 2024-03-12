@@ -49,7 +49,7 @@
                                         data-bs-target="#flush-collapse{{ blog.id }}"
                                         aria-expanded="false" aria-controls="flush-collapse{{ blog.id }}">
                                     <img class="profile_img border border-1 d-none  d-sm-none d-md-none d-lg-inline"
-                                         style="background-image: url({{ blog.image.url }})">
+                                         src="{{  blog.image.url }}" alt="rasm{{ blog.id }}">
                                     <div class="blog-header">
                                         <div>
                                             <b class="fw-medium">{{ blog.title | truncatewords:8 }}</b>

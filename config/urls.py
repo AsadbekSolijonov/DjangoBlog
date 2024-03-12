@@ -20,6 +20,7 @@ from django.urls import path, include
 from blog import views
 
 from config import settings  # new
+from config.settings import DEBUG
 
 urlpatterns = [
     path('admin/', admin.site.urls),

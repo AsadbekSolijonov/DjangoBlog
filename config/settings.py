@@ -95,8 +95,8 @@ DATABASES = {
 }
 
 # 'postgres://back472_blog_user:G6BdUXUTjruB9deJPY6PGGBCxR4wmJNe@dpg-cno0qkn109ks73ch112g-a.oregon-postgres.render.com/back472_blog'
-# database_url = 'postgres://back472_blog_user:G6BdUXUTjruB9deJPY6PGGBCxR4wmJNe@dpg-cno0qkn109ks73ch112g-a.oregon-postgres.render.com/back472_blog'
-database_url = os.environ.get('DATABASE_URL')
+database_url = 'postgres://back472_blog_user:G6BdUXUTjruB9deJPY6PGGBCxR4wmJNe@dpg-cno0qkn109ks73ch112g-a.oregon-postgres.render.com/back472_blog'
+# database_url = os.environ.get('DATABASE_URL')
 DATABASES['default'] = dj_database_url.parse(database_url)
 
 # Password validation
@@ -161,7 +161,7 @@ STATIC_ROOT = BASE_DIR / 'static'
 STATIC_FILES_DIRS = [BASE_DIR / 'blog/static/']
 
 MEDIA_URL = 'media/'  # new
-MEDIA_ROOT = BASE_DIR / 'media'  # new
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
