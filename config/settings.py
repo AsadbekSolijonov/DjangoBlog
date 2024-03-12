@@ -149,8 +149,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [BASE_DIR / 'blog/static/']
 
-MEDIA_URL = 'https://myblogcode.onrender.com/media/' if not HOSTS else '/media/'  # new
-MEDIA_ROOT = os.path.join('https://myblogcode.onrender.com/media/' if not HOSTS else BASE_DIR, 'media')  # new
+MEDIA_URL = '/media/'  # new
+# MEDIA_URL = 'https://myblogcode.onrender.com/media/' if not HOSTS else '/media/'  # new
+# MEDIA_ROOT = os.path.join('https://myblogcode.onrender.com/media/' if not HOSTS else BASE_DIR, 'media')  # new
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
