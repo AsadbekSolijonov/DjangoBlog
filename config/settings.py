@@ -24,7 +24,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-(&a9g)l$6c4s@ea(hcubi
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'false'
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 HOSTS = os.environ.get('ALLOWED_HOSTS')
 ALLOWED_HOSTS = HOSTS.split(' ') if HOSTS else []
@@ -150,7 +150,7 @@ STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [BASE_DIR / 'blog/static/']
 
 MEDIA_URL = 'https://myblogcode.onrender.com/media/' if not HOSTS else '/media/'  # new
-MEDIA_ROOT = os.path.join('https://myblogcode.onrender.com/media' if HOSTS == '127.0.0.1:8000' else BASE_DIR, 'media')  # new
+MEDIA_ROOT = os.path.join('https://myblogcode.onrender.com/media/' if not HOSTS else BASE_DIR, 'media')  # new
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
