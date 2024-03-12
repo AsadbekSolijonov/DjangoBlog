@@ -18,17 +18,32 @@
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
             </ul>
-                <div class="nav-item dropdown ms-auto px-5">
-                    <a class="nav-link dropdown-toggle ms-auto" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        Dropdown link
-                    </a>
-                    <ul class="dropdown-menu z-3">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
+            <div style="padding-right: 100px" class="nav-item dropdown ms-auto">
+                <a class="nav-link dropdown-toggle ms-auto" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    {#  Hello, {{ user.username|default:'Guest' }}#}
+                    {{ user.username|default:'Guest' }}
+                </a>
+                <!-- Login -->
+                <ul class="dropdown-menu z-3">
+                    {% if user.is_authenticated %}
+                        <li>
+                            <form method="post" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <button class="dropdown-item" style="border: none; background-color: transparent;" type="submit">Logout
+                                </button>
+                            </form>
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'password_change' %}">Password Change</a></li>
+                        <li><a class="dropdown-item" href="{% url 'password_reset' %}">Password Reset</a></li>
+                    {% else %}
+                        <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                        <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+                <!-- /Login -->
+            </div>
+
         </div>
     </div>
 </nav>

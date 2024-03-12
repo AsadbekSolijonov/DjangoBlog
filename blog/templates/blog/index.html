@@ -18,26 +18,6 @@
 
 {# start blog content#}
 {% block content %}
-    <!-- Login -->
-    Hello, {{ user.username|default:'Guest' }}!
-    <div>
-        {% if user.is_authenticated %}
-            <form method="post" action="{% url 'logout' %}">
-                {% csrf_token %}
-                <button style="border: none; background-color: transparent;" type="submit">Logout</button>
-            </form>
-
-            <a href="{% url 'password_change' %}">Password Change</a>
-            <hr>
-            <a href="{% url 'password_reset' %}">Password Reset</a>
-        {% else %}
-            <a href="{% url 'login' %}">Login</a>
-            <hr>
-            <a href="{% url 'register' %}">Register</a>
-        {% endif %}
-    </div>
-    <!-- /Login -->
-
     {# start container #}
     <div class="mt-4">
         {# Start Results, Years, Months, Blogs #}
