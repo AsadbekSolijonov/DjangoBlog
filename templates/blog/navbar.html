@@ -1,47 +1,68 @@
 {#navbar start#}
-<nav class="navbar  navbar-expand-lg bg-white sticky-top shadow-sm p-3 bg-body-white">
+{% load static %}
+{#header--title flex align-items-center#}
+<nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm p-3 bg-body-white header--title align-items-center">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Mars Blog</a>
+        <div class="d-flex justify-content-center align-items-center">
+            <img class="px-2" style="height: 30px;" src="{% static 'images/logo.png' %}" alt="logo">
+            <h1 class="navbar-brand h1"><a href="{% url 'home' %}">MARS Blog</a></h1>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav d-flex justify-content-between">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                </li>
+
+                <!-- Blogs -->
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'index' %}">Blogs</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
+                <!-- /Blogs -->
+
             </ul>
-            <div style="padding-right: 100px" class="nav-item dropdown ms-auto">
+            <div style="padding-right: 100px;" class="nav-item dropdown ms-auto">
+                <!-- Who am I -->
                 <a class="nav-link dropdown-toggle ms-auto" href="#" role="button" data-bs-toggle="dropdown"
                    aria-expanded="false">
                     {#  Hello, {{ user.username|default:'Guest' }}#}
-                    {{ user.username|default:'Guest' }}
+                    {{ user.username|default:'Guest'|title }}
                 </a>
-                <!-- Login -->
+                <!-- /Who am I -->
+
+                <!-- Authentication -->
                 <ul class="dropdown-menu z-3">
                     {% if user.is_authenticated %}
+                        <!-- Logout -->
                         <li>
+                            <!-- Logout qilish uchun POST so'raov yuborish kerak -->
                             <form method="post" action="{% url 'logout' %}">
                                 {% csrf_token %}
-                                <button class="dropdown-item" style="border: none; background-color: transparent;" type="submit">Logout
+                                <button class="dropdown-item" style="border: none; background-color: transparent;"
+                                        type="submit">Logout
                                 </button>
                             </form>
                         </li>
+                        <!-- /Logout -->
+
+                        <!-- Password Change -->
                         <li><a class="dropdown-item" href="{% url 'password_change' %}">Password Change</a></li>
+                        <!-- /Password Change -->
+
+                        <!-- Password Reset -->
                         <li><a class="dropdown-item" href="{% url 'password_reset' %}">Password Reset</a></li>
+                        <!-- /Password Reset -->
                     {% else %}
+                        <!-- Login -->
                         <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                        <!-- /Login -->
+
+                        <!-- Register -->
                         <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+                        <!-- /Register -->
                     {% endif %}
                 </ul>
-                <!-- /Login -->
+                <!-- /Authentication -->
             </div>
 
         </div>

@@ -21,25 +21,21 @@
     {# start container #}
     <div class="mt-4">
         {# Start Results, Years, Months, Blogs #}
-        <h5 class="text-end z-2 fw-lighter sticky-top bg-dark text-white fluid shadow-sm p-3 mb-3 bg-body-white rounded"
-            style="top:70px;">
-            <div class="d-flex justify-content-between">
-                <i class="fa-solid fa-feather-pointed"></i>
-                <div>
-                    <b>{{ count.year }}</b> years / <b>{{ count.month }}</b> months / <b>{{ count.blog }}</b> blogs
-                </div>
+        <h5 class="text-end z-2 fluid">
+            <div class="d-flex p-2 justify-content-between text-dark">
+                <!-- Shower Blog Results -->
+                <h3>{{ count.blog }} Blogs </h3>
+                <!-- /Shower Blog Results -->
             </div>
         </h5>
         {# End Results, Years, Months, Blogs #}
         {# start accordion #}
         {% for year, blogs in grouped_blogs_year.items %}
             <div class="accordion" id="accordionExample">
-                <h5 class="z-2 mt-3 fw-lighter sticky-top bg-white fluid shadow-sm p-3 mb-3 bg-body-white rounded"
-                    style="top:70px;">| <i class="fa-solid fa-calendar-days"></i> {{ year }}</h5>
+                <h5 class="z-2 px-2 text-end fw-bold mt-3 fw-lighter sticky-top fluid"
+                    style="top:85px;"><i class="fa-solid fa-calendar-days"></i> {{ year }}</h5>
                 {% for month, blogs in grouped_blogs_month.items %}
-                    <h5 class="z-2 mt-3 fw-lighter sticky-top bg-white fluid shadow-sm p-3 mb-3 bg-body-white rounded"
-                        style="top:110px;">| <i
-                            class="fa-solid fa-calendar-days"></i> {{ month }}</h5>
+                    <h5 class="z-2 px-2 fw-bold mt-3 fw-lighter fluid">{{ month }}</h5>
                     {% for blog in blogs %}
                         <div class="z-1 m-2 accordion accordion-flush border border-1 rounded"
                              id="accordionFlushExample">
@@ -49,7 +45,7 @@
                                         data-bs-target="#flush-collapse{{ blog.id }}"
                                         aria-expanded="false" aria-controls="flush-collapse{{ blog.id }}">
                                     <img class="profile_img border border-1 d-none  d-sm-none d-md-none d-lg-inline"
-                                         src="{{  blog.image.url }}" alt="rasm{{ blog.id }}">
+                                         src="{{ blog.image.url }}" alt="rasm{{ blog.id }}">
                                     <div class="blog-header">
                                         <div>
                                             <b class="fw-medium">{{ blog.title | truncatewords:8 }}</b>
