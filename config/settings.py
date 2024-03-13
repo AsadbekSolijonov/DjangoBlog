@@ -23,8 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-(&a9g)l$6c4s@ea(hcubipuww3n#be%uawi$k^h_-pkg_mtj#w')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+# DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 HOSTS = os.environ.get('ALLOWED_HOSTS')
 ALLOWED_HOSTS = HOSTS.split(' ') if HOSTS else []
@@ -150,8 +150,6 @@ STATIC_ROOT = os.path.join(BASE_DIR / 'static')
 STATICFILES_DIRS = [BASE_DIR / 'blog/static']
 
 MEDIA_URL = '/media/'  # new
-# MEDIA_URL = 'https://myblogcode.onrender.com/media/' if not HOSTS else '/media/'  # new
-# MEDIA_ROOT = os.path.join('https://myblogcode.onrender.com/media/' if not HOSTS else BASE_DIR, 'media')  # new
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
 
 # Default primary key field type
